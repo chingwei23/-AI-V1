@@ -24,7 +24,7 @@
         }
         /* 手風琴折疊特效 */
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .accordion-checkbox:checked ~ .accordion-content { max-height: 2000px; }
+        .accordion-checkbox:checked ~ .accordion-content { max-height: 2500px; }
         .accordion-checkbox:checked ~ .accordion-label svg { transform: rotate(180deg); }
     </style>
 </head>
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <nav class="hidden md:flex gap-6 text-sm font-bold">
-                <a href="#intro" class="hover:text-[#ffd600] transition-colors">AI 助手評比</a>
+                <a href="#intro" class="hover:text-[#ffd600] transition-colors">五大 AI 工具</a>
                 <a href="#part1" class="hover:text-[#ffd600] transition-colors">五指框架</a>
                 <a href="#part2" class="hover:text-[#ffd600] transition-colors">資料清洗</a>
                 <a href="#part3" class="hover:text-[#ffd600] transition-colors">NotebookLM</a>
@@ -53,49 +53,137 @@
     <main class="container mx-auto px-4 py-10 space-y-16 max-w-5xl">
 
         <section id="intro" class="bg-white rounded-3xl p-8 card-shadow border border-gray-100">
-            <h2 class="text-3xl font-black mb-6 flex items-center gap-3"><span class="text-[#ffd600]">▍</span>四大主流 AI 助手總評比</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-slate-100 text-[#2d3b48]">
-                            <th class="p-4 rounded-tl-xl font-bold">工具名稱</th>
-                            <th class="p-4 font-bold">核心優勢</th>
-                            <th class="p-4 font-bold">劣勢</th>
-                            <th class="p-4 font-bold">最佳使用情境</th>
-                            <th class="p-4 rounded-tr-xl font-bold">月費 (USD)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-100 text-sm">
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 font-bold text-green-600">ChatGPT (OpenAI)</td>
-                            <td class="p-4">綜合能力最強、邏輯推理極佳、外掛生態系豐富。</td>
-                            <td class="p-4">中文寫作有時會帶有「翻譯腔」或過於死板。</td>
-                            <td class="p-4">寫程式、複雜邏輯推演、日常萬用助理。</td>
-                            <td class="p-4 font-bold">$20</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 font-bold text-purple-600">Claude (Anthropic)</td>
-                            <td class="p-4">語氣最自然、極富人性、極長文本處理能力無敵。</td>
-                            <td class="p-4">無法直接上網搜尋最新即時資訊。</td>
-                            <td class="p-4">寫感人文案、閱讀長篇報表、公文與企劃書潤飾。</td>
-                            <td class="p-4 font-bold">$20</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 font-bold text-blue-600">Gemini (Google)</td>
-                            <td class="p-4">與 Google 生態系 (Docs, Drive) 完美整合，搜尋速度快。</td>
-                            <td class="p-4">偶爾會給出不穩定的答案（幻覺）。</td>
-                            <td class="p-4">快速搜尋即時資訊、整合 Google 雲端文件。</td>
-                            <td class="p-4 font-bold">$20</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 font-bold text-[#ffd600] bg-gray-800 rounded-lg text-center my-2 inline-block px-3">NotebookLM</td>
-                            <td class="p-4">基於你上傳的資料回答，<span class="text-red-500 font-bold">絕對不瞎掰</span>。支援音訊生成。</td>
-                            <td class="p-4">不能當聊天機器人，只能回答資料庫內的問題。</td>
-                            <td class="p-4">內部知識庫建置、會議紀錄總結、法規查詢。</td>
-                            <td class="p-4 font-bold">目前免費</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <h2 class="text-3xl font-black mb-2 flex items-center gap-3"><span class="text-[#ffd600]">▍</span>五大主流 AI 助手總評比</h2>
+            <p class="text-gray-500 mb-8 font-bold">了解各種工具的強項與極限，才能在對的情境用對的武器。</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="border-2 border-green-200 rounded-2xl p-6 bg-white shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-black text-green-700">ChatGPT <br><span class="text-xs text-gray-500 font-medium">(OpenAI)</span></h3>
+                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded font-bold">月費 $20</span>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div><strong class="text-gray-800">🎯 最佳情境：</strong>寫程式、複雜邏輯推演、日常萬用助理。</div>
+                        <div>
+                            <strong class="text-blue-600">👍 優勢：</strong>
+                            <ul class="list-disc pl-5 text-gray-600 mt-1 space-y-1">
+                                <li>綜合能力最強的全能王者。</li>
+                                <li>邏輯推理與解題能力極佳。</li>
+                                <li>擁有強大的 GPTs 擴充外掛生態系。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-red-500">👎 劣勢：</strong>
+                            <ul class="list-disc pl-5 text-gray-600 mt-1 space-y-1">
+                                <li>中文寫作容易有「翻譯腔」。</li>
+                                <li>語氣有時過於死板、充滿機器感。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-2 border-purple-200 rounded-2xl p-6 bg-white shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-black text-purple-700">Claude <br><span class="text-xs text-gray-500 font-medium">(Anthropic)</span></h3>
+                        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded font-bold">月費 $20</span>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div><strong class="text-gray-800">🎯 最佳情境：</strong>寫感人文案、閱讀數百頁長篇報表、企劃書潤飾。</div>
+                        <div>
+                            <strong class="text-blue-600">👍 優勢：</strong>
+                            <ul class="list-disc pl-5 text-gray-600 mt-1 space-y-1">
+                                <li>中文語氣最自然，最懂人話。</li>
+                                <li>極長文本的記憶力與處理能力無敵。</li>
+                                <li>回答極富人性，文案寫作首選。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-red-500">👎 劣勢：</strong>
+                            <ul class="list-disc pl-5 text-gray-600 mt-1 space-y-1">
+                                <li>免費版額度非常少。</li>
+                                <li>無法直接上網搜尋最新即時資訊。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-2 border-blue-200 rounded-2xl p-6 bg-white shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-black text-blue-700">Gemini <br><span class="text-xs text-gray-500 font-medium">(Google)</span></h3>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded font-bold">月費 $20</span>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div><strong class="text-gray-800">🎯 最佳情境：</strong>快速搜尋即時新聞、整合 Google 雲端文件。</div>
+                        <div>
+                            <strong class="text-blue-600">👍 優勢：</strong>
+                            <ul class="list-disc pl-5 text-gray-600 mt-1 space-y-1">
+                                <li>與 Google 生態系完美整合 (Docs/Drive)。</li>
+                                <li>搜尋網路即時資訊速度極快。</li>
+                                <li>免費版速度就非常優秀。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-red-500">👎 劣勢：</strong>
+                            <ul class="list-disc pl-5 text-gray-600 mt-1 space-y-1">
+                                <li>回答品質有時不穩定。</li>
+                                <li>偶爾會出現邏輯錯誤的「幻覺」。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-2 border-[#2d3b48] rounded-2xl p-6 bg-white shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-black text-[#2d3b48]">NotebookLM <br><span class="text-xs text-gray-500 font-medium">(Google)</span></h3>
+                        <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded font-bold">免費</span>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div><strong class="text-gray-800">🎯 最佳情境：</strong>內部知識庫建置、會議紀錄整理、法規與講義查詢。</div>
+                        <div>
+                            <strong class="text-blue-600">👍 優勢：</strong>
+                            <ul class="list-disc pl-5 text-gray-600 mt-1 space-y-1">
+                                <li class="font-bold text-[#2d3b48] bg-[#ffd600] px-1 inline-block">絕對不瞎掰！只根據你給的資料回答。</li>
+                                <li>能將枯燥文件轉成雙人對談的 Podcast 音訊。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-red-500">👎 劣勢：</strong>
+                            <ul class="list-disc pl-5 text-gray-600 mt-1 space-y-1">
+                                <li>不能當聊天機器人閒聊。</li>
+                                <li>完全無法回答資料庫以外的問題。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-2 border-orange-200 rounded-2xl p-6 bg-white shadow-sm hover:shadow-md transition lg:col-span-2">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-black text-orange-700">Manus <br><span class="text-xs text-gray-500 font-medium">自主代理 Agent (最新趨勢)</span></h3>
+                        <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded font-bold">邀請內測中</span>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <strong class="text-gray-800 block mb-1">🎯 最佳情境：</strong>
+                            全自動完成多步驟任務（例如：去網路上搜集十家競品資料，整理成 Excel 並發送郵件）。
+                        </div>
+                        <div class="space-y-2">
+                            <div>
+                                <strong class="text-blue-600">👍 優勢：</strong>
+                                <ul class="list-disc pl-5 text-gray-600 mt-1 space-y-1">
+                                    <li>不只是對話，它能<strong class="text-orange-600">「自己操作瀏覽器與軟體」</strong>。</li>
+                                    <li>丟給它一個大目標，它會自己拆解步驟並執行。</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-red-500">👎 劣勢：</strong>
+                                <ul class="list-disc pl-5 text-gray-600 mt-1 space-y-1">
+                                    <li>目前極難取得帳號。</li>
+                                    <li>執行複雜任務時容易陷入死循環。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -111,53 +199,66 @@
                     <button onclick="clearPrompt()" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-bold hover:bg-gray-300 active:scale-95 transition ml-auto">🗑️ 清空</button>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    <div><label class="font-bold text-sm text-gray-700">👍 1. 任務 (Task)</label><input type="text" id="p_task" class="w-full mt-1 p-2 border rounded bg-white" oninput="generateFinalPrompt()"></div>
-                    <div><label class="font-bold text-sm text-gray-700">👉 2. 背景 (Context)</label><input type="text" id="p_context" class="w-full mt-1 p-2 border rounded bg-white" oninput="generateFinalPrompt()"></div>
-                    <div class="md:col-span-2"><label class="font-bold text-sm text-red-600">🖕 3. 限制 (Constraint) <span class="text-xs text-gray-400">※最重要</span></label><input type="text" id="p_constraint" class="w-full mt-1 p-2 border border-red-200 rounded bg-red-50" oninput="generateFinalPrompt()"></div>
-                    <div><label class="font-bold text-sm text-gray-700">💍 4. 範例 (Example)</label><input type="text" id="p_example" class="w-full mt-1 p-2 border rounded bg-white" oninput="generateFinalPrompt()"></div>
-                    <div><label class="font-bold text-sm text-gray-700">🖐️ 5. 格式 (Format)</label><input type="text" id="p_format" class="w-full mt-1 p-2 border rounded bg-white" oninput="generateFinalPrompt()"></div>
+                <div class="flex flex-col gap-4 mb-6">
+                    <div><label class="font-bold text-sm text-gray-700">👍 1. 任務 (Task)</label><input type="text" id="p_task" class="w-full mt-1 p-2.5 border rounded-lg bg-white shadow-sm" oninput="generateFinalPrompt()"></div>
+                    <div><label class="font-bold text-sm text-gray-700">👉 2. 背景 (Context)</label><input type="text" id="p_context" class="w-full mt-1 p-2.5 border rounded-lg bg-white shadow-sm" oninput="generateFinalPrompt()"></div>
+                    <div><label class="font-bold text-sm text-red-600">🖕 3. 限制 (Constraint) <span class="text-xs text-gray-400">※最重要</span></label><input type="text" id="p_constraint" class="w-full mt-1 p-2.5 border border-red-300 rounded-lg bg-red-50 shadow-sm" oninput="generateFinalPrompt()"></div>
+                    <div><label class="font-bold text-sm text-gray-700">💍 4. 範例 (Example)</label><input type="text" id="p_example" class="w-full mt-1 p-2.5 border rounded-lg bg-white shadow-sm" oninput="generateFinalPrompt()"></div>
+                    <div><label class="font-bold text-sm text-gray-700">🖐️ 5. 格式 (Format)</label><input type="text" id="p_format" class="w-full mt-1 p-2.5 border rounded-lg bg-white shadow-sm" oninput="generateFinalPrompt()"></div>
                 </div>
 
                 <div class="relative">
                     <label class="font-black text-[#2d3b48] mb-2 block">✨ 最終 Prompt 組合 (可直接複製給 AI)</label>
-                    <textarea id="final_prompt" rows="6" readonly class="w-full p-4 bg-gray-900 text-green-400 font-mono text-sm rounded-xl outline-none"></textarea>
-                    <button onclick="copyElement('final_prompt')" class="absolute top-10 right-4 bg-gray-700 text-white text-xs px-3 py-1 rounded hover:bg-gray-600">複製</button>
+                    <textarea id="final_prompt" class="w-full p-5 bg-gray-900 text-green-400 font-mono text-sm rounded-xl outline-none min-h-[350px] resize-none" readonly></textarea>
+                    <button onclick="copyElement('final_prompt')" class="absolute top-10 right-4 bg-gray-700 text-white text-xs px-3 py-1.5 rounded hover:bg-gray-600 font-bold">一鍵複製</button>
                 </div>
             </div>
 
             <div class="mt-8 bg-yellow-50 border-l-4 border-[#ffd600] p-6 rounded-r-xl">
                 <h4 class="font-black text-lg mb-4 flex items-center gap-2">💡 景崴講師的進階筆記</h4>
-                <ul class="space-y-3 text-sm text-gray-800 font-medium">
-                    <li><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded mr-2 font-bold">1. 限制是靈魂</span>不要只告訴 AI 要做什麼，一定要告訴它「絕對不能做什麼」。</li>
-                    <li><span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded mr-2 font-bold">2. 保持批判性</span>AI 是基於「已知」進行「未知預測」。請勿盲目相信，你是最終的決策者。</li>
-                    <li><span class="bg-green-100 text-green-700 px-2 py-0.5 rounded mr-2 font-bold">3. 自我審查迴圈</span>拿到答案後，再餵給 AI 問：「請以專家角度自評，這是最佳方案嗎？請提出優化建議。」</li>
-                    <li><span class="bg-purple-100 text-purple-700 px-2 py-0.5 rounded mr-2 font-bold">4. 逆向工程思維</span>企劃寫完後，務必補上一句：「<span class="font-black">請給我 5 個這個計畫可能會失敗的原因，並提供預防對策。</span>」</li>
+                <ul class="space-y-4 text-sm text-gray-800 font-medium">
+                    <li><span class="bg-red-100 text-red-700 px-2 py-1 rounded mr-2 font-bold">1. 限制是靈魂</span>不要只告訴 AI 要做什麼，在 Prompt 裡面一定要讓 AI 清楚知道「絕對不能做什麼」。</li>
+                    <li><span class="bg-blue-100 text-blue-700 px-2 py-1 rounded mr-2 font-bold">2. 保持批判性</span>AI 是基於「已知」進行「未知」的預測。對 AI 產出的內容必須保持批判性，不要輕易相信，你是最終裁決者。</li>
+                    <li><span class="bg-green-100 text-green-700 px-2 py-1 rounded mr-2 font-bold">3. 自我審查迴圈</span>把 AI 產出的東西，再餵回去給它問：「請自評這是最好的選擇或答案嗎？如果是，為什麼？如果不是，請優化。」</li>
+                    <li><span class="bg-purple-100 text-purple-700 px-2 py-1 rounded mr-2 font-bold">4. 逆向工程思維</span>計畫生成後，請補上關鍵指令：<span class="font-black text-purple-900 border-b border-purple-300 pb-0.5">「請給我 5 個此計畫可能會失敗的原因，並提供對策。」</span></li>
                 </ul>
             </div>
         </section>
 
         <section id="part2" class="bg-white rounded-3xl p-8 card-shadow border border-gray-100">
-            <h2 class="text-3xl font-black mb-4 flex items-center gap-3"><span class="text-[#ffd600]">▍</span>第二部分：AI 資料清洗術</h2>
+            <h2 class="text-3xl font-black mb-6 flex items-center gap-3"><span class="text-[#ffd600]">▍</span>第二部分：AI 資料清洗術</h2>
             
-            <div class="bg-red-600 text-white p-6 rounded-2xl mb-6 shadow-lg text-center transform rotate-1">
-                <h3 class="text-2xl font-black tracking-widest mb-2">🚨 絕對鐵則：GIGO！🚨</h3>
-                <p class="font-bold text-red-100 text-lg">Garbage In, Garbage Out (垃圾進，垃圾出)</p>
-                <p class="mt-2 text-sm">清洗好的資料庫檔案最為重要！若餵給 AI 凌亂的垃圾，AI 也只會吐出華麗的垃圾給你。</p>
+            <div class="bg-red-600 text-white p-6 rounded-2xl mb-8 shadow-lg text-center">
+                <h3 class="text-3xl font-black tracking-widest mb-2">🚨 絕對鐵則：GIGO 🚨</h3>
+                <p class="font-bold text-red-100 text-xl tracking-wide">Garbage In, Garbage Out (垃圾進，垃圾出)</p>
+                <p class="mt-3 text-sm font-medium bg-red-700 inline-block px-4 py-2 rounded-full">清洗好的資料檔案❗最為重要❗ 若餵給 AI 垃圾，AI 也只會吐出垃圾。</p>
+            </div>
+
+            <div class="bg-[#f8fafc] border border-slate-200 rounded-2xl p-6 mb-8 text-center">
+                <p class="font-bold text-gray-600 mb-4">👇 請先點擊下方連結，下載講師準備的練習資料 👇</p>
+                <a href="https://drive.google.com/drive/folders/1BxRbFyxmPE9wPgyRqcxO0EEBcsSHUWXk?usp=drive_link" target="_blank" class="inline-block bg-[#2d3b48] text-white px-8 py-3 rounded-xl font-black hover:bg-[#1a232b] transition shadow-md">
+                    📁 開啟雲端硬碟練習檔
+                </a>
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
-                    <h4 class="font-bold text-slate-700 mb-2">❌ 清洗前 (人類速記)</h4>
-                    <p class="text-xs text-gray-500 font-mono bg-white p-3 rounded border">小明說下周要辦活動 預算大概一萬吧...然後王老師說場地還沒訂 怎麼辦 期限是這周五 記得跟財務請款...</p>
+                <div class="bg-white border border-slate-200 rounded-xl p-5 relative shadow-sm">
+                    <h4 class="font-black text-blue-700 mb-3 flex items-center gap-2">🧹 練習一：Excel 報表清洗</h4>
+                    <textarea id="clean_excel" rows="8" class="w-full bg-slate-50 text-sm text-gray-700 p-3 rounded-lg border-none focus:ring-0 resize-none" readonly>你是一個資料整理專員。
+請幫我把這份 Excel 報表清洗成統一格式。
+這是一間貿易公司半年的銷售數據，欄位名稱不統一、有空白列、日期格式混亂。
+所有金額統一用新台幣顯示，日期統一 YYYY/MM/DD，刪除空白列，欄位名稱統一中文。
+請給我整理好的表格，並列出你做了哪些修改。</textarea>
+                    <button onclick="copyElement('clean_excel')" class="absolute top-5 right-5 bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded hover:bg-gray-300 font-bold">複製指令</button>
                 </div>
-                <div class="bg-green-50 p-5 rounded-xl border border-green-200">
-                    <h4 class="font-bold text-green-800 mb-2">✅ 清洗後 (AI 結構化)</h4>
-                    <table class="w-full text-xs text-left bg-white rounded border">
-                        <tr class="bg-green-100 font-bold"><th>負責人</th><th>任務</th><th>期限</th></tr>
-                        <tr><td>小明</td><td>辦活動 (預算1萬)</td><td>未定</td></tr>
-                        <tr><td>王老師</td><td>確認場地與財務請款</td><td>本週五</td></tr>
-                    </table>
+                <div class="bg-white border border-slate-200 rounded-xl p-5 relative shadow-sm">
+                    <h4 class="font-black text-green-700 mb-3 flex items-center gap-2">📝 練習二：結構化會議紀錄</h4>
+                    <textarea id="clean_meeting" rows="8" class="w-full bg-slate-50 text-sm text-gray-700 p-3 rounded-lg border-none focus:ring-0 resize-none" readonly>你是專業的會議秘書。
+請幫我把這份會議紀錄整理成結構化摘要。
+這是上週主管會議的紀錄，三個議題全部混在一起。
+按議題分類，每個議題列出：討論重點、決議事項、負責人、截止日期。
+用表格呈現。</textarea>
+                    <button onclick="copyElement('clean_meeting')" class="absolute top-5 right-5 bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded hover:bg-gray-300 font-bold">複製指令</button>
                 </div>
             </div>
         </section>
@@ -167,53 +268,51 @@
             
             <div class="space-y-6">
                 <div class="border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
-                    <h3 class="text-xl font-bold text-[#2d3b48] mb-3">🔥 實作 A：將教材轉化為測驗與圖表</h3>
-                    <p class="text-sm text-gray-600 mb-4">請打開 NotebookLM，將下方的簡報網址加入為「來源」，並輸入指定 Prompt。</p>
+                    <h3 class="text-xl font-bold text-[#2d3b48] mb-3">🔥 實作 A：將教學檔案轉化為測驗與圖表</h3>
+                    <p class="text-sm text-gray-600 mb-4">請打開 NotebookLM，將下方的資料夾加入為「來源」，並請 AI 產出測驗題、心智圖或資訊圖表。</p>
                     <div class="flex flex-wrap gap-4 items-center">
-                        <a href="https://commainnov.sharepoint.com/:p:/s/D22/IQDXnnC0d4slQISYWigRUoYGAWZq8-hLzpJTB5DFAuM_CSs?e=7t6hat" target="_blank" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl font-bold hover:bg-blue-700 transition shadow-sm inline-flex items-center gap-2">
+                        <a href="https://drive.google.com/drive/folders/1BxRbFyxmPE9wPgyRqcxO0EEBcsSHUWXk?usp=drive_link" target="_blank" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl font-bold hover:bg-blue-700 transition shadow-sm inline-flex items-center gap-2">
                             🔗 點我開啟教學 PPT 來源
                         </a>
-                        <div class="bg-gray-100 p-3 rounded-lg text-sm font-mono flex-grow relative">
-                            <span class="block font-bold mb-1 text-gray-500 text-xs">建議 Prompt：</span>
-                            請根據這份簡報內容，為我產出 5 題選擇題當作測驗，並在最後整理出一份系統化的文字心智圖。
-                        </div>
                     </div>
                 </div>
 
                 <div class="border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
                     <h3 class="text-xl font-bold text-[#2d3b48] mb-3">▶️ 實作 B：YouTube 影片精準摘要</h3>
-                    <p class="text-sm text-gray-600 mb-4">將冗長的教學影片轉化為重點筆記，再也不用按暫停抄寫。</p>
+                    <p class="text-sm text-gray-600 mb-4">將影片網址貼入 NotebookLM，讓 AI 幫你快速提取重點與行動方案。</p>
                     <div class="flex flex-wrap gap-4 items-center">
                         <a href="https://youtu.be/LW4xHM-Drow" target="_blank" class="bg-red-600 text-white px-5 py-2.5 rounded-xl font-bold hover:bg-red-700 transition shadow-sm inline-flex items-center gap-2">
                             📺 點我開啟 YouTube 影片來源
                         </a>
-                        <div class="bg-gray-100 p-3 rounded-lg text-sm font-mono flex-grow relative">
-                            <span class="block font-bold mb-1 text-gray-500 text-xs">建議 Prompt：</span>
-                            請幫我總結這部影片的核心重點，並條列出 3 個我可以立即落地執行的行動方案 (Action Items)。
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="part4" class="bg-white rounded-3xl p-8 card-shadow border border-gray-100">
-            <h2 class="text-3xl font-black mb-6 flex items-center gap-3"><span class="text-[#ffd600]">▍</span>第四部分：打造專屬文案產生器 (大魔王)</h2>
-            <p class="text-gray-600 mb-6 font-medium">這是我們成功打造「V8.1 變色龍靈魂系統」的真實步驟。請依序將以下 Prompt 餵給 Claude 或 ChatGPT 進行開發。</p>
+            <h2 class="text-3xl font-black mb-6 flex items-center gap-3"><span class="text-[#ffd600]">▍</span>第四部分：打造專屬文案產生器</h2>
+            <p class="text-gray-600 mb-6 font-medium">這是我們成功打造自動化系統的真實步驟。請依序將以下 Prompt 餵給 AI 進行開發。</p>
 
             <div class="space-y-4">
                 <div class="border border-slate-200 rounded-xl">
                     <input type="checkbox" id="acc1" class="accordion-checkbox hidden">
                     <label for="acc1" class="accordion-label cursor-pointer p-5 flex justify-between items-center bg-slate-50 rounded-xl hover:bg-slate-100 transition">
-                        <span class="font-bold text-[#2d3b48]">🚀 步驟一：設定 AI 角色與餵入課程大腦 (Prompt 1)</span>
+                        <span class="font-bold text-[#2d3b48]">📖 步驟一：產出品牌故事 (Prompt 1)</span>
                         <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </label>
                     <div class="accordion-content px-5">
                         <div class="pb-5 pt-2 relative">
-                            <textarea id="code1" rows="5" readonly class="w-full p-4 bg-gray-800 text-gray-200 font-mono text-sm rounded-lg">你現在是逗點教室的資深文案總監與全端工程師。
-我即將給你一份「課程價值 CSV」檔案。
-請先閱讀並理解裡面各部別的「課程名稱」、「家長痛點」與「關鍵成果」。
-了解完畢後，請回答「我已準備好，請提供產銷節奏」。</textarea>
-                            <button onclick="copyElement('code1')" class="absolute top-4 right-2 bg-gray-600 text-white text-xs px-2 py-1 rounded">複製</button>
+                            <textarea id="code1" class="w-full p-4 bg-gray-800 text-gray-200 font-mono text-sm rounded-lg min-h-[300px] resize-none" readonly>角色：你是品牌策略顧問
+目標：根據以下品牌資訊，產出一份 300 字的品牌故事摘要
+背景：
+- 品牌名稱：[你的品牌名]
+- 產業：[你的產業]
+- 創立原因：[為什麼做這件事]
+- 核心價值：[你最在乎什麼]
+- 主要產品/服務：[列出 2-3 項]
+限制：300 字以內、第三人稱敘述、要有情感溫度
+輸出：一份品牌故事文件，含品牌使命、願景、核心價值</textarea>
+                            <button onclick="copyElement('code1')" class="absolute top-4 right-2 bg-gray-600 text-white text-xs px-3 py-1.5 rounded hover:bg-gray-500 font-bold">複製</button>
                         </div>
                     </div>
                 </div>
@@ -221,16 +320,25 @@
                 <div class="border border-slate-200 rounded-xl">
                     <input type="checkbox" id="acc2" class="accordion-checkbox hidden">
                     <label for="acc2" class="accordion-label cursor-pointer p-5 flex justify-between items-center bg-slate-50 rounded-xl hover:bg-slate-100 transition">
-                        <span class="font-bold text-[#2d3b48]">📅 步驟二：餵入產銷節奏與行事曆 (Prompt 2)</span>
+                        <span class="font-bold text-[#2d3b48]">👤 步驟二：產出理想客戶輪廓 (Prompt 2)</span>
                         <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </label>
                     <div class="accordion-content px-5">
                         <div class="pb-5 pt-2 relative">
-                            <textarea id="code2" rows="5" readonly class="w-full p-4 bg-gray-800 text-gray-200 font-mono text-sm rounded-lg">這是一到十二月的逗點產銷節奏與招生活動大檔：
-（貼上 1~12 月節慶與各部別招生資訊）
-請理解這些時間軸的對應關係。
-了解完畢後，請回答「我已準備好，請告訴我網頁需求」。</textarea>
-                            <button onclick="copyElement('code2')" class="absolute top-4 right-2 bg-gray-600 text-white text-xs px-2 py-1 rounded">複製</button>
+                            <textarea id="code2" class="w-full p-4 bg-gray-800 text-gray-200 font-mono text-sm rounded-lg min-h-[350px] resize-none" readonly>角色：你是市場研究分析師
+目標：根據品牌資訊，建立理想客戶輪廓（Customer Persona）
+背景：
+[把剛剛產出的品牌故事貼上]
+- 我們的客戶大多是：[簡述你觀察到的客戶特徵]
+- 客戶常見的困擾：[列出 2-3 個]
+限制：用表格呈現、包含人口統計和心理特徵
+輸出：一份理想客戶輪廓，含：
+- 基本資料（年齡、性別、職業、收入）
+- 生活型態與價值觀
+- 痛點與渴望
+- 觸媒（什麼會讓他們行動）
+- 常用的社群平台</textarea>
+                            <button onclick="copyElement('code2')" class="absolute top-4 right-2 bg-gray-600 text-white text-xs px-3 py-1.5 rounded hover:bg-gray-500 font-bold">複製</button>
                         </div>
                     </div>
                 </div>
@@ -238,22 +346,70 @@
                 <div class="border border-slate-200 rounded-xl">
                     <input type="checkbox" id="acc3" class="accordion-checkbox hidden">
                     <label for="acc3" class="accordion-label cursor-pointer p-5 flex justify-between items-center bg-slate-50 rounded-xl hover:bg-slate-100 transition">
-                        <span class="font-bold text-[#2d3b48]">💻 步驟三：要求撰寫單檔 HTML 系統 (Prompt 3)</span>
+                        <span class="font-bold text-[#2d3b48]">✨ 步驟三：產出品牌風格指南 (Prompt 3)</span>
                         <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </label>
                     <div class="accordion-content px-5">
                         <div class="pb-5 pt-2 relative">
-                            <textarea id="code3" rows="10" readonly class="w-full p-4 bg-gray-800 text-gray-200 font-mono text-sm rounded-lg">請幫我把剛剛的「課程資料庫」與「產銷節奏」整合，寫成一個免後端的單檔 HTML 網頁。
-需求如下：
-1. 介面需有逗點配色 (#2d3b48, #ffd600)。
-2. 主管選擇分校與月份後，自動推薦相關的「文案主題靈感」。
-3. 具備一個「備註欄」，強制主任輸入在地真實故事細節。
-4. 點擊產出後，利用底層資料庫自動拼接成完美的文案 Prompt。
-5. 使用 Tailwind CSS 進行切版。請直接給我完整的 HTML 程式碼。</textarea>
-                            <button onclick="copyElement('code3')" class="absolute top-4 right-2 bg-gray-600 text-white text-xs px-2 py-1 rounded">複製</button>
+                            <textarea id="code3" class="w-full p-4 bg-gray-800 text-gray-200 font-mono text-sm rounded-lg min-h-[350px] resize-none" readonly>角色：你是品牌行銷總監
+目標：根據品牌故事和以下過去貼文範例，提煉品牌風格指南
+背景：
+[貼上品牌故事]
+[貼上 3-5 篇你過去寫得最好的貼文]
+限制：聚焦在文字風格，不談視覺設計
+輸出：一份品牌文字風格指南，包含：
+- 品牌語氣（Tone of Voice）：3 個關鍵詞描述
+- 常用句型和修辭手法
+- 禁用詞彙和風格（什麼是品牌不會說的話）
+- 標點符號和 emoji 使用偏好
+- 每個平台的語氣微調建議</textarea>
+                            <button onclick="copyElement('code3')" class="absolute top-4 right-2 bg-gray-600 text-white text-xs px-3 py-1.5 rounded hover:bg-gray-500 font-bold">複製</button>
                         </div>
                     </div>
                 </div>
+
+                <div class="border border-slate-200 rounded-xl border-l-4 border-l-[#ffd600]">
+                    <input type="checkbox" id="acc4" class="accordion-checkbox hidden">
+                    <label for="acc4" class="accordion-label cursor-pointer p-5 flex justify-between items-center bg-slate-50 rounded-xl hover:bg-slate-100 transition">
+                        <span class="font-black text-[#2d3b48]">💻 步驟四：打造文案產生器 HTML 工具 (大魔王)</span>
+                        <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </label>
+                    <div class="accordion-content px-5">
+                        <div class="pb-5 pt-2 relative">
+                            <textarea id="code4" class="w-full p-4 bg-gray-900 text-green-400 font-mono text-sm rounded-lg min-h-[500px] resize-none" readonly>角色：你是前端工程師
+目標：建立一個品牌文案產生器 HTML 工具
+背景：
+這是一個單檔 HTML 工具，嵌入品牌資料，
+使用者填入主題就能產出五個平台的文案
+
+品牌資料：
+[貼上你的品牌故事]
+[貼上理想客戶輪廓]
+[貼上品牌風格指南]
+
+功能需求：
+1. 下拉選單選文案類型（產品介紹/促銷活動/品牌故事/互動問答/節日借勢）
+2. 輸入欄位：主題、關鍵訊息、備註
+3. 雙模式切換：
+   - Prompt 模式（預設）：組合完整 Prompt 供複製
+   - API 模式：填 Gemini API Key，直接呼叫 API 出文案
+4. 五個平台分頁（FB/IG貼文/IG限動/LINE/Threads）
+5. 每個平台獨立複製按鈕
+6. 靈感角落：五大類型各預設 3 個主題範本
+7. API Key 存 localStorage，填一次記住
+
+限制：
+- 單一 HTML 檔案，含 CSS 和 JavaScript
+- 品牌配色：[你的品牌色]
+- 手機也要能用（RWD）
+- Gemini API endpoint: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent
+
+輸出：完整的 HTML 檔案</textarea>
+                            <button onclick="copyElement('code4')" class="absolute top-4 right-2 bg-gray-600 text-white text-xs px-3 py-1.5 rounded hover:bg-gray-500 font-bold">複製</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -265,26 +421,42 @@
                 <ol class="list-decimal pl-6 space-y-2 text-gray-700 font-medium">
                     <li>前往 <a href="https://github.com/" target="_blank" class="text-blue-600 font-bold hover:underline">GitHub 官網</a> 註冊並登入帳號。</li>
                     <li>點擊 <strong>New Repository</strong> 建立新專案。</li>
-                    <li class="bg-red-50 p-2 rounded border border-red-200 text-red-700 font-bold">⚠️ 極度重要：設定權限時，務必選擇「Public (公開)」，否則無法啟用網頁服務！</li>
-                    <li>上傳剛剛寫好的 <code>index.html</code> 檔案並 Commit 存檔。</li>
-                    <li>前往專案的 Settings > Pages，將 Source 選擇為 `main` 分支並儲存。等候幾分鐘，網址就會產出囉！</li>
+                    <li class="bg-red-50 p-3 rounded-lg border border-red-200 text-red-700 font-bold my-2 shadow-sm flex items-start gap-2">
+                        <span class="text-xl">⚠️</span> 
+                        <div>
+                            極度重要：設定權限時，務必選擇「Public (公開)」！<br>
+                            <span class="text-sm font-normal text-red-600">如果設為 Private，GitHub Pages (網頁託管服務) 將無法為你啟動伺服器。</span>
+                        </div>
+                    </li>
+                    <li>上傳剛剛寫好的 <code>index.html</code> 檔案並 <strong>Commit changes</strong> 存檔。</li>
+                    <li>前往專案的 Settings > Pages，將 Source 選擇為 `main` 分支並點擊 <strong>Save</strong>。等候 1-2 分鐘，專屬網址就會產出囉！</li>
                 </ol>
             </div>
 
-            <div class="mb-10 bg-slate-800 text-white p-6 rounded-2xl relative overflow-hidden">
+            <div class="mb-10 bg-slate-800 text-white p-8 rounded-2xl relative overflow-hidden shadow-xl">
                 <div class="absolute -right-10 -top-10 opacity-10 text-9xl">🔌</div>
-                <h3 class="text-xl font-bold text-[#ffd600] mb-4">🔑 2. API 觀念與串接 (為網頁注入靈魂)</h3>
-                <div class="grid md:grid-cols-2 gap-6">
+                <h3 class="text-2xl font-black text-[#ffd600] mb-6 border-b border-gray-600 pb-3">🔑 2. 為網頁注入靈魂：API 與 API Key</h3>
+                <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h4 class="font-bold border-b border-gray-600 pb-2 mb-2">什麼是 API？</h4>
-                        <p class="text-sm text-gray-300 leading-relaxed">想像你去餐廳，API 就是「服務生」。你點餐（發送需求），服務生走到廚房（AI 伺服器）把做好的菜（文案結果）端回你的桌上（你的網頁）。</p>
+                        <h4 class="font-bold text-lg mb-3 flex items-center gap-2"><span class="text-blue-400">Q:</span> 什麼是 API？</h4>
+                        <p class="text-sm text-gray-300 leading-relaxed mb-2 font-medium">全名：Application Programming Interface (應用程式介面)</p>
+                        <p class="text-sm text-gray-200 leading-relaxed">
+                            <strong class="text-white">💡 秒懂比喻：去餐廳點菜的「服務生」。</strong><br>
+                            你不需要知道廚房（AI 大模型）怎麼生火做菜的。你只要把點餐單（使用者的 Prompt）交給服務生（API），服務生就會走進廚房，並把做好的頂級料理（生成的文案）端回你的餐桌（你的靜態 HTML 網頁）。<br><br>
+                            <span class="text-[#ffd600]">👉 意義：讓你的普通網頁，瞬間擁有呼叫全世界最強 AI 算力的能力！</span>
+                        </p>
                     </div>
                     <div>
-                        <h4 class="font-bold border-b border-gray-600 pb-2 mb-2">什麼是 API Key？</h4>
-                        <p class="text-sm text-gray-300 leading-relaxed">這是專屬的「信用卡通行證」。服務生要確認你有付費權限，才會幫你把需求送進頂級廚房。有了 Key，你的靜態網頁就擁有了 AI 算力！</p>
+                        <h4 class="font-bold text-lg mb-3 flex items-center gap-2"><span class="text-green-400">Q:</span> 什麼是 API Key？</h4>
+                        <p class="text-sm text-gray-300 leading-relaxed mb-2 font-medium">全名：API 專屬金鑰</p>
+                        <p class="text-sm text-gray-200 leading-relaxed">
+                            <strong class="text-white">💡 秒懂比喻：進高級餐廳的「專屬信用卡」。</strong><br>
+                            服務生要幫你點餐前，必須確認「是誰在點餐？要扣誰的錢？」。API Key 就是一串亂碼密碼，用來驗證你的身份與計算使用額度 (Token)。<br><br>
+                            <span class="text-red-400 font-bold">⚠️ 警告：絕對不能把 API Key 公開貼在網路上！這就像把信用卡密碼發在臉書上一樣，會被別人盜刷 AI 算力！</span>
+                        </p>
                     </div>
                 </div>
-                <div class="mt-6 text-center">
+                <div class="mt-8 text-center border-t border-gray-600 pt-6">
                     <a href="https://console.groq.com/keys" target="_blank" class="inline-block bg-[#ffd600] text-[#2d3b48] px-8 py-3 rounded-xl font-black hover:bg-yellow-400 transition transform hover:scale-105 shadow-lg">
                         👉 點我前往申請 Groq 免費 API Key
                     </a>
@@ -293,23 +465,31 @@
 
             <div>
                 <h3 class="text-xl font-bold border-l-4 border-[#2d3b48] pl-3 mb-4">🖼️ 3. 網站放圖片的兩種法門</h3>
-                <table class="w-full text-sm text-left border-collapse border border-gray-200">
-                    <tr class="bg-gray-100">
-                        <th class="p-3 border">方法</th>
-                        <th class="p-3 border">怎麼做？</th>
-                        <th class="p-3 border">優缺點比較</th>
-                    </tr>
-                    <tr>
-                        <td class="p-3 border font-bold">📂 方法一：同資料夾 (相對路徑)</td>
-                        <td class="p-3 border">把圖片上傳到 GitHub，和 <code>index.html</code> 放在同一個專案資料夾裡。程式碼寫 <code>src="./logo.png"</code></td>
-                        <td class="p-3 border text-green-700 font-bold">最穩定、不會因為別人刪圖而破圖。<br><span class="text-red-500 text-xs">缺點：要手動上傳檔案。</span></td>
-                    </tr>
-                    <tr>
-                        <td class="p-3 border font-bold">🔗 方法二：網址連結 (絕對路徑)</td>
-                        <td class="p-3 border">把圖片上傳到圖床(如 Imgur)，直接在程式碼貼上網址：<code>src="https://..."</code></td>
-                        <td class="p-3 border text-blue-700 font-bold">程式碼乾淨、更換圖片只需換網址。<br><span class="text-red-500 text-xs">缺點：圖床掛掉或被刪除，網站就會破圖。</span></td>
-                    </tr>
-                </table>
+                <div class="overflow-hidden rounded-xl border border-gray-200">
+                    <table class="w-full text-sm text-left border-collapse">
+                        <tr class="bg-gray-100">
+                            <th class="p-4 border-b">圖片載入方法</th>
+                            <th class="p-4 border-b">具體做法</th>
+                            <th class="p-4 border-b">優缺點比較</th>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-4 border-b font-black text-[#2d3b48]">📂 方法一：相對路徑<br><span class="text-xs text-gray-500 font-normal">(與程式碼同居)</span></td>
+                            <td class="p-4 border-b text-gray-700">把圖片上傳到 GitHub，和 <code>index.html</code> 放在同一個專案資料夾裡。<br>程式碼寫：<code class="bg-slate-100 text-pink-600 px-1 rounded">src="./logo.png"</code></td>
+                            <td class="p-4 border-b">
+                                <span class="text-green-700 font-bold flex items-center gap-1">✅ 優點：最穩定，圖片永遠跟著網頁走。</span>
+                                <span class="text-red-500 font-bold mt-1 flex items-center gap-1">❌ 缺點：更新圖片時需要手動上傳檔案。</span>
+                            </td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="p-4 font-black text-[#2d3b48]">🔗 方法二：絕對路徑<br><span class="text-xs text-gray-500 font-normal">(雲端圖床網址)</span></td>
+                            <td class="p-4 text-gray-700">把圖片上傳到圖床(如 Imgur、Google Drive)，直接貼上對外公開的網址。<br>程式碼寫：<code class="bg-slate-100 text-pink-600 px-1 rounded">src="https://..."</code></td>
+                            <td class="p-4">
+                                <span class="text-green-700 font-bold flex items-center gap-1">✅ 優點：程式碼乾淨，隨時換網址就能換圖。</span>
+                                <span class="text-red-500 font-bold mt-1 flex items-center gap-1">❌ 缺點：若圖床網址失效，你的網站就會破圖。</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </section>
 
@@ -362,7 +542,15 @@
             const el = document.getElementById(id);
             el.select();
             document.execCommand('copy');
-            alert('複製成功！可以貼給 AI 試試看囉！');
+            // 特效反饋
+            const btn = el.nextElementSibling;
+            const originalText = btn.innerText;
+            btn.innerText = '已複製！';
+            btn.classList.add('bg-green-600');
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove('bg-green-600');
+            }, 2000);
         }
     </script>
 </body>
