@@ -159,7 +159,7 @@
                 <div class="border-2 border-orange-200 rounded-2xl p-6 bg-white shadow-sm hover:shadow-md transition lg:col-span-2">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-xl font-black text-orange-700">Manus <br><span class="text-xs text-gray-500 font-medium">自主代理 Agent (最新趨勢)</span></h3>
-                        <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded font-bold">邀請內測中</span>
+                        <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded font-bold">開放測試中</span>
                     </div>
                     <div class="grid md:grid-cols-2 gap-4 text-sm">
                         <div>
@@ -171,14 +171,14 @@
                                 <strong class="text-blue-600">👍 優勢：</strong>
                                 <ul class="list-disc pl-5 text-gray-600 mt-1 space-y-1">
                                     <li>不只是對話，它能<strong class="text-orange-600">「自己操作瀏覽器與軟體」</strong>。</li>
-                                    <li>丟給它一個大目標，它會自己拆解步驟並執行。</li>
+                                    <li>丟給它一個大目標，它會自己拆解步驟並連續執行。</li>
                                 </ul>
                             </div>
                             <div>
                                 <strong class="text-red-500">👎 劣勢：</strong>
                                 <ul class="list-disc pl-5 text-gray-600 mt-1 space-y-1">
-                                    <li>目前極難取得帳號。</li>
-                                    <li>執行複雜任務時容易陷入死循環。</li>
+                                    <li>目前處於快速發展期，使用介面與功能限制可能隨時調整。</li>
+                                    <li>執行過於開放或複雜的任務時，偶爾會陷入反覆思考的迴圈。</li>
                                 </ul>
                             </div>
                         </div>
@@ -302,7 +302,7 @@
                     </label>
                     <div class="accordion-content px-5">
                         <div class="pb-5 pt-2 relative">
-                            <textarea id="code1" class="w-full p-4 bg-gray-800 text-gray-200 font-mono text-sm rounded-lg min-h-[300px] resize-none" readonly>角色：你是品牌策略顧問
+                            <textarea id="code1" class="w-full p-4 bg-gray-800 text-gray-200 font-mono text-sm rounded-lg min-h-[250px] resize-none" readonly>角色：你是品牌策略顧問
 目標：根據以下品牌資訊，產出一份 300 字的品牌故事摘要
 背景：
 - 品牌名稱：[你的品牌名]
@@ -325,7 +325,7 @@
                     </label>
                     <div class="accordion-content px-5">
                         <div class="pb-5 pt-2 relative">
-                            <textarea id="code2" class="w-full p-4 bg-gray-800 text-gray-200 font-mono text-sm rounded-lg min-h-[350px] resize-none" readonly>角色：你是市場研究分析師
+                            <textarea id="code2" class="w-full p-4 bg-gray-800 text-gray-200 font-mono text-sm rounded-lg min-h-[300px] resize-none" readonly>角色：你是市場研究分析師
 目標：根據品牌資訊，建立理想客戶輪廓（Customer Persona）
 背景：
 [把剛剛產出的品牌故事貼上]
@@ -351,7 +351,7 @@
                     </label>
                     <div class="accordion-content px-5">
                         <div class="pb-5 pt-2 relative">
-                            <textarea id="code3" class="w-full p-4 bg-gray-800 text-gray-200 font-mono text-sm rounded-lg min-h-[350px] resize-none" readonly>角色：你是品牌行銷總監
+                            <textarea id="code3" class="w-full p-4 bg-gray-800 text-gray-200 font-mono text-sm rounded-lg min-h-[250px] resize-none" readonly>角色：你是品牌行銷總監
 目標：根據品牌故事和以下過去貼文範例，提煉品牌風格指南
 背景：
 [貼上品牌故事]
@@ -376,35 +376,43 @@
                     </label>
                     <div class="accordion-content px-5">
                         <div class="pb-5 pt-2 relative">
-                            <textarea id="code4" class="w-full p-4 bg-gray-900 text-green-400 font-mono text-sm rounded-lg min-h-[500px] resize-none" readonly>角色：你是前端工程師
-目標：建立一個品牌文案產生器 HTML 工具
+                            <textarea id="code4" class="w-full p-4 bg-gray-900 text-green-400 font-mono text-sm rounded-lg min-h-[850px] resize-none" readonly>角色：你是資深前端工程師與 UI/UX 設計師
+目標：建立一個「品牌社群文案自動化產線」的單檔 HTML 工具
 背景：
-這是一個單檔 HTML 工具，嵌入品牌資料，
-使用者填入主題就能產出五個平台的文案
+這是一個給行銷人員使用的單檔 HTML 工具，嵌入了專屬的品牌大腦資料。
+使用者填入主題後，就能一鍵產出五個社群平台（FB、IG 貼文、IG 限動、LINE、Threads）的專屬文案。 
 
 品牌資料：
 [貼上你的品牌故事]
 [貼上理想客戶輪廓]
 [貼上品牌風格指南]
 
-功能需求：
-1. 下拉選單選文案類型（產品介紹/促銷活動/品牌故事/互動問答/節日借勢）
-2. 輸入欄位：主題、關鍵訊息、備註
-3. 雙模式切換：
-   - Prompt 模式（預設）：組合完整 Prompt 供複製
-   - API 模式：填 Gemini API Key，直接呼叫 API 出文案
-4. 五個平台分頁（FB/IG貼文/IG限動/LINE/Threads）
-5. 每個平台獨立複製按鈕
-6. 靈感角落：五大類型各預設 3 個主題範本
-7. API Key 存 localStorage，填一次記住
+功能需求與 UI 設計：
+1. 介面設計：採用 Tailwind CSS 或內建高質感 CSS，品牌配色為「熱血橘(#E65100)」與「溫暖大地色」，手機版必須完美 RWD。
+2. 表單輸入區：
+   - 下拉選單：文案類型（產品介紹/促銷活動/品牌故事/互動問答/節日借勢）。
+   - 輸入欄位：主題、關鍵訊息、備註。
+3. 靈感角落：五大文案類型各預設 3 個與補教業相關的主題範本（點擊標籤即可自動帶入「主題」與「關鍵訊息」）。
+4. 雙模式切換：
+   - 模式一：Prompt 組合模式（預設）：將品牌資料與表單內容組合成完美的 Prompt 供使用者複製。
+   - 模式二：API 高速產出模式：填入 Groq API Key，點擊按鈕後直接呼叫 API，並將產出結果分發到五個平台。
+5. 五個平台分頁：右側需有 FB / IG貼文 / IG限動 / LINE / Threads 五個分頁切換（Tab），並各自配有「一鍵複製」按鈕。
 
-限制：
-- 單一 HTML 檔案，含 CSS 和 JavaScript
-- 品牌配色：[你的品牌色]
-- 手機也要能用（RWD）
-- Gemini API endpoint: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent
+⚠️ 程式碼嚴格技術限制（防呆機制）：
+1. 必須是單一 HTML 檔案（HTML + CSS + JavaScript 寫在一起）。
+2. API 串接規格必須使用 Groq API：
+   - Endpoint: `https://api.groq.com/openai/v1/chat/completions`
+   - Headers 必須包含：`'Authorization': 'Bearer ' + apiKey` 以及 `'Content-Type': 'application/json'`
+   - Model 必須指定使用：`llama-3.3-70b-versatile`
+   - Body 必須設定：`response_format: { type: "json_object" }` 確保回傳純 JSON 格式。
+3. Prompt 要求：在呼叫 API 時，務必在 Prompt 中要求 AI「只能回傳 JSON 物件」，JSON 的 Key 必須明確為："FB", "IG_Post", "IG_Story", "LINE", "Threads"。
+4. API Key 防呆處理（極度重要）：
+   - 讀取、儲存或使用 API Key 前，必須加上 `apiKey.replace(/['"\s]+/g, '')` 強制清除使用者不小心複製到的空白或引號，避免觸發 `API key not valid` 錯誤。
+   - API Key 必須儲存在 localStorage 中，讓使用者填一次就能記住。
+   - 輸入框的 placeholder 請寫：「請輸入 gsk_ 開頭的 Groq 金鑰」。
 
-輸出：完整的 HTML 檔案</textarea>
+輸出要求：
+請給我一份完整、可直接在瀏覽器雙擊執行的 HTML 檔案程式碼，不需要解釋原理。</textarea>
                             <button onclick="copyElement('code4')" class="absolute top-4 right-2 bg-gray-600 text-white text-xs px-3 py-1.5 rounded hover:bg-gray-500 font-bold">複製</button>
                         </div>
                     </div>
