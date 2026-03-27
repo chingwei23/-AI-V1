@@ -192,25 +192,74 @@
             <p class="text-gray-500 mb-8 font-bold">與 AI 溝通的核心心法，寫出精準 Prompt 的必備五元素。</p>
 
             <div class="bg-[#f8fafc] rounded-2xl p-6 border border-slate-200">
-                <div class="flex flex-wrap gap-3 mb-6">
-                    <button onclick="fillPrompt('meeting')" class="bg-[#2d3b48] text-white px-4 py-2 rounded-lg font-bold hover:bg-[#1a232b] active:scale-95 transition">📋 整理會議記錄</button>
-                    <button onclick="fillPrompt('copywrite')" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700 active:scale-95 transition">✍️ 產出招生文案</button>
-                    <button onclick="fillPrompt('event')" class="bg-emerald-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-emerald-700 active:scale-95 transition">🎉 招生活動企劃</button>
-                    <button onclick="clearPrompt()" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-bold hover:bg-gray-300 active:scale-95 transition ml-auto">🗑️ 清空</button>
+                <p class="text-xs font-bold text-gray-500 mb-3">快速填入範例</p>
+                <div class="flex flex-wrap gap-3 mb-8 border-b border-gray-200 pb-6">
+                    <button onclick="fillPrompt('meeting')" class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:border-[#2d3b48] hover:text-[#2d3b48] transition shadow-sm">整理會議紀錄</button>
+                    <button onclick="fillPrompt('email')" class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:border-[#2d3b48] hover:text-[#2d3b48] transition shadow-sm">寫回覆客戶信</button>
+                    <button onclick="fillPrompt('report')" class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:border-[#2d3b48] hover:text-[#2d3b48] transition shadow-sm">寫週報給老闆</button>
+                    <button onclick="fillPrompt('copy')" class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:border-[#2d3b48] hover:text-[#2d3b48] transition shadow-sm">產品文案</button>
+                    <button onclick="fillPrompt('schedule')" class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:border-[#2d3b48] hover:text-[#2d3b48] transition shadow-sm">安排行程</button>
+                    <button onclick="clearPrompt()" class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition ml-auto">清空重填</button>
                 </div>
 
-                <div class="flex flex-col gap-4 mb-6">
-                    <div><label class="font-bold text-sm text-gray-700">👍 1. 任務 (Task)</label><input type="text" id="p_task" class="w-full mt-1 p-2.5 border rounded-lg bg-white shadow-sm" oninput="generateFinalPrompt()"></div>
-                    <div><label class="font-bold text-sm text-gray-700">👉 2. 背景 (Context)</label><input type="text" id="p_context" class="w-full mt-1 p-2.5 border rounded-lg bg-white shadow-sm" oninput="generateFinalPrompt()"></div>
-                    <div><label class="font-bold text-sm text-red-600">🖕 3. 限制 (Constraint) <span class="text-xs text-gray-400">※最重要</span></label><input type="text" id="p_constraint" class="w-full mt-1 p-2.5 border border-red-300 rounded-lg bg-red-50 shadow-sm" oninput="generateFinalPrompt()"></div>
-                    <div><label class="font-bold text-sm text-gray-700">💍 4. 範例 (Example)</label><input type="text" id="p_example" class="w-full mt-1 p-2.5 border rounded-lg bg-white shadow-sm" oninput="generateFinalPrompt()"></div>
-                    <div><label class="font-bold text-sm text-gray-700">🖐️ 5. 格式 (Format)</label><input type="text" id="p_format" class="w-full mt-1 p-2.5 border rounded-lg bg-white shadow-sm" oninput="generateFinalPrompt()"></div>
+                <div class="flex flex-col gap-6 mb-8">
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="font-bold text-sm text-[#2d3b48] flex items-center gap-2">
+                                <span class="bg-[#2d3b48] text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span> 角色
+                            </label>
+                            <span class="text-xs text-gray-400">你要 AI 扮演誰？</span>
+                        </div>
+                        <input type="text" id="p_role" class="w-full p-3 border border-gray-300 rounded-lg bg-white shadow-sm focus:border-[#2d3b48] focus:ring-1 focus:ring-[#2d3b48] outline-none transition" oninput="generateFinalPrompt()">
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="font-bold text-sm text-[#2d3b48] flex items-center gap-2">
+                                <span class="bg-purple-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span> 目標
+                            </label>
+                            <span class="text-xs text-gray-400">你要它做什麼？</span>
+                        </div>
+                        <input type="text" id="p_goal" class="w-full p-3 border border-gray-300 rounded-lg bg-white shadow-sm focus:border-purple-600 focus:ring-1 focus:ring-purple-600 outline-none transition" oninput="generateFinalPrompt()">
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="font-bold text-sm text-[#2d3b48] flex items-center gap-2">
+                                <span class="bg-green-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">3</span> 背景
+                            </label>
+                            <span class="text-xs text-gray-400">給 AI 足夠的脈絡</span>
+                        </div>
+                        <textarea id="p_context" rows="2" class="w-full p-3 border border-gray-300 rounded-lg bg-white shadow-sm focus:border-green-600 focus:ring-1 focus:ring-green-600 outline-none transition resize-none" oninput="generateFinalPrompt()"></textarea>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="font-bold text-sm text-[#2d3b48] flex items-center gap-2">
+                                <span class="bg-yellow-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">4</span> 限制
+                            </label>
+                            <span class="text-xs text-gray-400">格式、語言、範圍</span>
+                        </div>
+                        <input type="text" id="p_constraint" class="w-full p-3 border border-gray-300 rounded-lg bg-white shadow-sm focus:border-yellow-600 focus:ring-1 focus:ring-yellow-600 outline-none transition" oninput="generateFinalPrompt()">
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="font-bold text-sm text-[#2d3b48] flex items-center gap-2">
+                                <span class="bg-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">5</span> 輸出
+                            </label>
+                            <span class="text-xs text-gray-400">你要什麼格式的結果？</span>
+                        </div>
+                        <input type="text" id="p_output" class="w-full p-3 border border-gray-300 rounded-lg bg-white shadow-sm focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition" oninput="generateFinalPrompt()">
+                    </div>
                 </div>
 
-                <div class="relative">
-                    <label class="font-black text-[#2d3b48] mb-2 block">✨ 最終 Prompt 組合 (可直接複製給 AI)</label>
-                    <textarea id="final_prompt" class="w-full p-5 bg-gray-900 text-green-400 font-mono text-sm rounded-xl outline-none min-h-[350px] resize-none" readonly></textarea>
-                    <button onclick="copyElement('final_prompt')" class="absolute top-10 right-4 bg-gray-700 text-white text-xs px-3 py-1.5 rounded hover:bg-gray-600 font-bold">一鍵複製</button>
+                <div class="relative bg-[#1a232b] rounded-xl p-6 overflow-hidden shadow-inner">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs font-black tracking-widest text-gray-400 uppercase">YOUR PROMPT</span>
+                        <button onclick="copyElement('final_prompt')" class="bg-[#ffd600] text-[#2d3b48] text-xs px-4 py-1.5 rounded font-bold hover:bg-yellow-400 transition shadow">複製</button>
+                    </div>
+                    <textarea id="final_prompt" class="w-full bg-transparent text-blue-300 font-mono text-sm outline-none min-h-[250px] resize-none leading-relaxed" readonly></textarea>
                 </div>
             </div>
 
@@ -243,22 +292,22 @@
 
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-white border border-slate-200 rounded-xl p-5 relative shadow-sm">
-                    <h4 class="font-black text-blue-700 mb-3 flex items-center gap-2">🧹 練習一：Excel 報表清洗</h4>
-                    <textarea id="clean_excel" rows="8" class="w-full bg-slate-50 text-sm text-gray-700 p-3 rounded-lg border-none focus:ring-0 resize-none" readonly>你是一個資料整理專員。
+                    <h4 class="font-black text-[#2d3b48] mb-4 flex items-center gap-2">🧹 練習一：Excel 報表清洗</h4>
+                    <textarea id="clean_excel" rows="8" class="w-full bg-slate-50 text-sm text-gray-700 p-4 rounded-lg border-none focus:ring-0 resize-none" readonly>你是一個資料整理專員。
 請幫我把這份 Excel 報表清洗成統一格式。
 這是一間貿易公司半年的銷售數據，欄位名稱不統一、有空白列、日期格式混亂。
 所有金額統一用新台幣顯示，日期統一 YYYY/MM/DD，刪除空白列，欄位名稱統一中文。
 請給我整理好的表格，並列出你做了哪些修改。</textarea>
-                    <button onclick="copyElement('clean_excel')" class="absolute top-5 right-5 bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded hover:bg-gray-300 font-bold">複製指令</button>
+                    <button onclick="copyElement('clean_excel')" class="absolute top-4 right-4 bg-[#2d3b48] text-white text-xs px-3 py-1.5 rounded hover:bg-[#1a232b] font-bold shadow-sm">複製指令</button>
                 </div>
                 <div class="bg-white border border-slate-200 rounded-xl p-5 relative shadow-sm">
-                    <h4 class="font-black text-green-700 mb-3 flex items-center gap-2">📝 練習二：結構化會議紀錄</h4>
-                    <textarea id="clean_meeting" rows="8" class="w-full bg-slate-50 text-sm text-gray-700 p-3 rounded-lg border-none focus:ring-0 resize-none" readonly>你是專業的會議秘書。
+                    <h4 class="font-black text-[#2d3b48] mb-4 flex items-center gap-2">📝 練習二：結構化會議紀錄</h4>
+                    <textarea id="clean_meeting" rows="8" class="w-full bg-slate-50 text-sm text-gray-700 p-4 rounded-lg border-none focus:ring-0 resize-none" readonly>你是專業的會議秘書。
 請幫我把這份會議紀錄整理成結構化摘要。
 這是上週主管會議的紀錄，三個議題全部混在一起。
 按議題分類，每個議題列出：討論重點、決議事項、負責人、截止日期。
 用表格呈現。</textarea>
-                    <button onclick="copyElement('clean_meeting')" class="absolute top-5 right-5 bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded hover:bg-gray-300 font-bold">複製指令</button>
+                    <button onclick="copyElement('clean_meeting')" class="absolute top-4 right-4 bg-[#2d3b48] text-white text-xs px-3 py-1.5 rounded hover:bg-[#1a232b] font-bold shadow-sm">複製指令</button>
                 </div>
             </div>
         </section>
@@ -296,13 +345,13 @@
             <div class="space-y-4">
                 <div class="border border-slate-200 rounded-xl">
                     <input type="checkbox" id="acc1" class="accordion-checkbox hidden">
-                    <label for="acc1" class="accordion-label cursor-pointer p-5 flex justify-between items-center bg-slate-50 rounded-xl hover:bg-slate-100 transition">
-                        <span class="font-bold text-[#2d3b48]">📖 步驟一：產出品牌故事 (Prompt 1)</span>
+                    <label for="acc1" class="accordion-label cursor-pointer p-5 flex justify-between items-center bg-[#4e3a2f] text-orange-100 rounded-xl hover:bg-[#3d2d24] transition">
+                        <span class="font-bold">📖 步驟一：產出品牌故事 (Prompt 1)</span>
                         <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </label>
-                    <div class="accordion-content px-5">
-                        <div class="pb-5 pt-2 relative">
-                            <textarea id="code1" class="w-full p-4 bg-gray-800 text-gray-200 font-mono text-sm rounded-lg min-h-[250px] resize-none" readonly>角色：你是品牌策略顧問
+                    <div class="accordion-content px-5 bg-[#362720] rounded-b-xl -mt-2">
+                        <div class="pb-5 pt-4 relative">
+                            <textarea id="code1" class="w-full p-4 bg-transparent text-orange-200 font-mono text-sm border-none outline-none min-h-[350px] resize-none" readonly>角色：你是品牌策略顧問
 目標：根據以下品牌資訊，產出一份 300 字的品牌故事摘要
 背景：
 - 品牌名稱：[你的品牌名]
@@ -312,20 +361,20 @@
 - 主要產品/服務：[列出 2-3 項]
 限制：300 字以內、第三人稱敘述、要有情感溫度
 輸出：一份品牌故事文件，含品牌使命、願景、核心價值</textarea>
-                            <button onclick="copyElement('code1')" class="absolute top-4 right-2 bg-gray-600 text-white text-xs px-3 py-1.5 rounded hover:bg-gray-500 font-bold">複製</button>
+                            <button onclick="copyElement('code1')" class="absolute top-4 right-2 bg-orange-700 text-white text-xs px-4 py-1.5 rounded hover:bg-orange-600 font-bold shadow">複製</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="border border-slate-200 rounded-xl">
                     <input type="checkbox" id="acc2" class="accordion-checkbox hidden">
-                    <label for="acc2" class="accordion-label cursor-pointer p-5 flex justify-between items-center bg-slate-50 rounded-xl hover:bg-slate-100 transition">
-                        <span class="font-bold text-[#2d3b48]">👤 步驟二：產出理想客戶輪廓 (Prompt 2)</span>
+                    <label for="acc2" class="accordion-label cursor-pointer p-5 flex justify-between items-center bg-[#4e3a2f] text-orange-100 rounded-xl hover:bg-[#3d2d24] transition">
+                        <span class="font-bold">👤 步驟二：產出理想客戶輪廓 (Prompt 2)</span>
                         <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </label>
-                    <div class="accordion-content px-5">
-                        <div class="pb-5 pt-2 relative">
-                            <textarea id="code2" class="w-full p-4 bg-gray-800 text-gray-200 font-mono text-sm rounded-lg min-h-[300px] resize-none" readonly>角色：你是市場研究分析師
+                    <div class="accordion-content px-5 bg-[#362720] rounded-b-xl -mt-2">
+                        <div class="pb-5 pt-4 relative">
+                            <textarea id="code2" class="w-full p-4 bg-transparent text-orange-200 font-mono text-sm border-none outline-none min-h-[450px] resize-none" readonly>角色：你是市場研究分析師
 目標：根據品牌資訊，建立理想客戶輪廓（Customer Persona）
 背景：
 [把剛剛產出的品牌故事貼上]
@@ -338,20 +387,20 @@
 - 痛點與渴望
 - 觸媒（什麼會讓他們行動）
 - 常用的社群平台</textarea>
-                            <button onclick="copyElement('code2')" class="absolute top-4 right-2 bg-gray-600 text-white text-xs px-3 py-1.5 rounded hover:bg-gray-500 font-bold">複製</button>
+                            <button onclick="copyElement('code2')" class="absolute top-4 right-2 bg-orange-700 text-white text-xs px-4 py-1.5 rounded hover:bg-orange-600 font-bold shadow">複製</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="border border-slate-200 rounded-xl">
                     <input type="checkbox" id="acc3" class="accordion-checkbox hidden">
-                    <label for="acc3" class="accordion-label cursor-pointer p-5 flex justify-between items-center bg-slate-50 rounded-xl hover:bg-slate-100 transition">
-                        <span class="font-bold text-[#2d3b48]">✨ 步驟三：產出品牌風格指南 (Prompt 3)</span>
+                    <label for="acc3" class="accordion-label cursor-pointer p-5 flex justify-between items-center bg-[#4e3a2f] text-orange-100 rounded-xl hover:bg-[#3d2d24] transition">
+                        <span class="font-bold">✨ 步驟三：產出品牌風格指南 (Prompt 3)</span>
                         <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </label>
-                    <div class="accordion-content px-5">
-                        <div class="pb-5 pt-2 relative">
-                            <textarea id="code3" class="w-full p-4 bg-gray-800 text-gray-200 font-mono text-sm rounded-lg min-h-[250px] resize-none" readonly>角色：你是品牌行銷總監
+                    <div class="accordion-content px-5 bg-[#362720] rounded-b-xl -mt-2">
+                        <div class="pb-5 pt-4 relative">
+                            <textarea id="code3" class="w-full p-4 bg-transparent text-orange-200 font-mono text-sm border-none outline-none min-h-[400px] resize-none" readonly>角色：你是品牌行銷總監
 目標：根據品牌故事和以下過去貼文範例，提煉品牌風格指南
 背景：
 [貼上品牌故事]
@@ -363,20 +412,20 @@
 - 禁用詞彙和風格（什麼是品牌不會說的話）
 - 標點符號和 emoji 使用偏好
 - 每個平台的語氣微調建議</textarea>
-                            <button onclick="copyElement('code3')" class="absolute top-4 right-2 bg-gray-600 text-white text-xs px-3 py-1.5 rounded hover:bg-gray-500 font-bold">複製</button>
+                            <button onclick="copyElement('code3')" class="absolute top-4 right-2 bg-orange-700 text-white text-xs px-4 py-1.5 rounded hover:bg-orange-600 font-bold shadow">複製</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="border border-slate-200 rounded-xl border-l-4 border-l-[#ffd600]">
                     <input type="checkbox" id="acc4" class="accordion-checkbox hidden">
-                    <label for="acc4" class="accordion-label cursor-pointer p-5 flex justify-between items-center bg-slate-50 rounded-xl hover:bg-slate-100 transition">
-                        <span class="font-black text-[#2d3b48]">💻 步驟四：打造文案產生器 HTML 工具 (大魔王)</span>
+                    <label for="acc4" class="accordion-label cursor-pointer p-5 flex justify-between items-center bg-[#33251c] text-orange-50 rounded-xl hover:bg-[#221812] transition">
+                        <span class="font-black">💻 步驟四：打造文案產生器 HTML 工具 (大魔王)</span>
                         <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </label>
-                    <div class="accordion-content px-5">
-                        <div class="pb-5 pt-2 relative">
-                            <textarea id="code4" class="w-full p-4 bg-gray-900 text-green-400 font-mono text-sm rounded-lg min-h-[850px] resize-none" readonly>角色：你是資深前端工程師與 UI/UX 設計師
+                    <div class="accordion-content px-5 bg-[#251a14] rounded-b-xl -mt-2">
+                        <div class="pb-5 pt-4 relative">
+                            <textarea id="code4" class="w-full p-4 bg-transparent text-green-400 font-mono text-[13px] border-none outline-none min-h-[1050px] resize-none leading-relaxed" readonly>角色：你是資深前端工程師與 UI/UX 設計師
 目標：建立一個「品牌社群文案自動化產線」的單檔 HTML 工具
 背景：
 這是一個給行銷人員使用的單檔 HTML 工具，嵌入了專屬的品牌大腦資料。
@@ -407,13 +456,13 @@
    - Body 必須設定：`response_format: { type: "json_object" }` 確保回傳純 JSON 格式。
 3. Prompt 要求：在呼叫 API 時，務必在 Prompt 中要求 AI「只能回傳 JSON 物件」，JSON 的 Key 必須明確為："FB", "IG_Post", "IG_Story", "LINE", "Threads"。
 4. API Key 防呆處理（極度重要）：
-   - 讀取、儲存或使用 API Key 前，必須加上 `apiKey.replace(/['"\s]+/g, '')` 強制清除使用者不小心複製到的空白或引號，避免觸發 `API key not valid` 錯誤。
+   - 讀取、儲存或使用 API Key 前，必須加上 `apiKey.replace(/['"\s]+/g/g, '')` 強制清除使用者不小心複製到的空白或引號，避免觸發 `API key not valid` 錯誤。
    - API Key 必須儲存在 localStorage 中，讓使用者填一次就能記住。
    - 輸入框的 placeholder 請寫：「請輸入 gsk_ 開頭的 Groq 金鑰」。
 
 輸出要求：
 請給我一份完整、可直接在瀏覽器雙擊執行的 HTML 檔案程式碼，不需要解釋原理。</textarea>
-                            <button onclick="copyElement('code4')" class="absolute top-4 right-2 bg-gray-600 text-white text-xs px-3 py-1.5 rounded hover:bg-gray-500 font-bold">複製</button>
+                            <button onclick="copyElement('code4')" class="absolute top-4 right-2 bg-green-700 text-white text-xs px-4 py-1.5 rounded hover:bg-green-600 font-bold shadow">複製</button>
                         </div>
                     </div>
                 </div>
@@ -511,54 +560,61 @@
         // 五指框架動態產生器邏輯
         function fillPrompt(type) {
             const data = {
-                'meeting': { t: '請幫我把以下凌亂的會議逐字稿，整理成結構化的表格。', c: '這是一場跨部門的招生活動籌備會議，參與者有營運部與行銷部。', con: '必須包含「待辦事項、負責人、期限」三個欄位。字數精簡，不要有廢話。', e: '小明負責聯絡印刷廠 (期限：本週五)', f: 'Markdown 表格格式' },
-                'copywrite': { t: '撰寫一篇適合發布在 IG 的招生限時動態文案。', c: '目標推廣國一暑期先修班，受眾是擔心孩子叛逆期的家長。', con: '字數 150 字以內，語氣溫暖感人，絕對不能用「保證班」或恐嚇字眼。', e: '以為青春期會換來關房門，今晚卻等到一通哽咽的『媽媽我愛妳』。', f: '純文字，段落留白，加上 3 個 Emoji' },
-                'event': { t: '幫我發想 3 個創新的母親節招生活動提案。', c: '我們是逗點教室，主打「陪伴大於成績」，預算約一萬元。', con: '活動必須有「親子互動」環節，且能在兩小時內完成。', e: '提案一：時光膠囊寫信活動', f: '列點說明，並附上預估成本與執行難度。' }
+                'meeting': { r: '你是專業的會議秘書', g: '整理跨部門招生活動籌備會議紀錄', c: '參與者有營運部與行銷部，討論了暑期營隊的行銷資源分配。', con: '字數精簡，包含待辦事項、負責人、期限，不要廢話。', o: 'Markdown 表格格式' },
+                'email': { r: '你是資深客服專員', g: '寫一封回覆家長詢問暑期課程的信件', c: '家長詢問國一先修班的費用與時間，我們目前有早鳥優惠到本週五。', con: '語氣親切專業，不超過 200 字，必須強調早鳥優惠的急迫性。', o: '一封完整的電子郵件' },
+                'report': { r: '你是我的商業分析助理', g: '幫我寫一份給老闆看的週報', c: '本月業績 NT$850萬（上月 NT$780萬），但日本客戶的大單延遲出貨，倉庫庫存偏高。', con: '控制在 300 字以內，語氣專業但不要太制式。', o: '包含：本月業績摘要（跟上月比較）、異常項目標注、下週重點工作。' },
+                'copy': { r: '你是資深社群行銷總監', g: '撰寫一篇適合發布在 IG 的招生限時動態文案', c: '目標推廣國一暑期先修班，受眾是擔心孩子叛逆期的家長。', con: '字數 150 字以內，語氣溫暖感人，絕對不能用「保證班」或恐嚇字眼。', o: '純文字，段落留白，加上 3 個 Emoji' },
+                'schedule': { r: '你是我的行政助理', g: '幫我安排下週的工作行程', c: '下週一要跟日本客戶視訊，週三有季度檢討會議，週五前要交出 Q1 預算表，另外要找時間去驗貨。', con: '每天安排不超過 3 個重點任務，要留午休和緩衝時間。', o: '用週一到週五的表格呈現，每格列出時段和任務' }
             };
             
-            document.getElementById('p_task').value = data[type].t;
+            document.getElementById('p_role').value = data[type].r;
+            document.getElementById('p_goal').value = data[type].g;
             document.getElementById('p_context').value = data[type].c;
             document.getElementById('p_constraint').value = data[type].con;
-            document.getElementById('p_example').value = data[type].e;
-            document.getElementById('p_format').value = data[type].f;
+            document.getElementById('p_output').value = data[type].o;
             generateFinalPrompt();
         }
 
         function clearPrompt() {
-            document.querySelectorAll('#p_task, #p_context, #p_constraint, #p_example, #p_format').forEach(el => el.value = '');
+            document.querySelectorAll('#p_role, #p_goal, #p_context, #p_constraint, #p_output').forEach(el => el.value = '');
             generateFinalPrompt();
         }
 
         function generateFinalPrompt() {
-            const t = document.getElementById('p_task').value;
+            const r = document.getElementById('p_role').value;
+            const g = document.getElementById('p_goal').value;
             const c = document.getElementById('p_context').value;
             const con = document.getElementById('p_constraint').value;
-            const e = document.getElementById('p_example').value;
-            const f = document.getElementById('p_format').value;
+            const o = document.getElementById('p_output').value;
             
             let result = "";
-            if(t) result += `【任務目標】\n${t}\n\n`;
-            if(c) result += `【背景情境】\n${c}\n\n`;
-            if(con) result += `【限制條件】⚠️嚴格遵守\n${con}\n\n`;
-            if(e) result += `【參考範例】\n${e}\n\n`;
-            if(f) result += `【輸出格式】\n${f}\n`;
+            if(r) result += `【角色】\n${r}\n\n`;
+            if(g) result += `【目標】\n${g}\n\n`;
+            if(c) result += `【背景】\n${c}\n\n`;
+            if(con) result += `【限制】⚠️嚴格遵守\n${con}\n\n`;
+            if(o) result += `【輸出】\n${o}\n`;
             
-            document.getElementById('final_prompt').value = result;
+            document.getElementById('final_prompt').value = result.trim();
         }
 
         function copyElement(id) {
             const el = document.getElementById(id);
             el.select();
             document.execCommand('copy');
-            // 特效反饋
-            const btn = el.nextElementSibling;
-            const originalText = btn.innerText;
-            btn.innerText = '已複製！';
-            btn.classList.add('bg-green-600');
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.classList.remove('bg-green-600');
-            }, 2000);
+            
+            const btn = el.nextElementSibling || el.parentElement.querySelector('button');
+            if(btn) {
+                const originalText = btn.innerText;
+                const originalBg = btn.className;
+                btn.innerText = '✅ 已複製！';
+                btn.classList.add('bg-green-600', 'text-white');
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.className = originalBg;
+                }, 2000);
+            } else {
+                alert('複製成功！');
+            }
         }
     </script>
 </body>
